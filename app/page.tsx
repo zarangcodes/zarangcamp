@@ -11,7 +11,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <InitiativesSection />
-      <ManifestoSection />
+      <ManifestoSection isOpen={true} onClose={() => {}} />
       <FAQSection />
       <Footer />
     </main>

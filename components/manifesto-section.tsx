@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+
 import { X, Calendar, Target, Users, TrendingUp, Lightbulb, Shield, Heart } from "lucide-react"
 
 interface ManifestoSectionProps {
