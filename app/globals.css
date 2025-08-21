@@ -1,0 +1,282 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+/* Custom Font Declarations */
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/ProximaNova-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/ProximaNova-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/ProximaNova-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Founders Grotesk';
+  src: url('/fonts/FoundersGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Founders Grotesk';
+  src: url('/fonts/FoundersGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Founders Grotesk';
+  src: url('/fonts/FoundersGrotesk-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Founders Grotesk';
+  src: url('/fonts/FoundersGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Enhanced Color Palette - Beautiful Purple Theme */
+  --background: oklch(0.98 0.005 270);
+  --foreground: oklch(0.15 0.02 270);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 270);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 270);
+  --primary: oklch(0.55 0.25 280);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.02 270);
+  --secondary-foreground: oklch(0.15 0.02 270);
+  --muted: oklch(0.96 0.01 270);
+  --muted-foreground: oklch(0.45 0.05 270);
+  --accent: oklch(0.65 0.2 300);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0.02 270);
+  --input: oklch(1 0 0);
+  --ring: oklch(0.55 0.25 280);
+  --chart-1: oklch(0.55 0.25 280);
+  --chart-2: oklch(0.65 0.2 300);
+  --chart-3: oklch(0.45 0.3 260);
+  --chart-4: oklch(0.6 0.25 320);
+  --chart-5: oklch(0.7 0.2 340);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.97 0.01 270);
+  --sidebar-foreground: oklch(0.15 0.02 270);
+  --sidebar-primary: oklch(0.55 0.25 280);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.65 0.2 300);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.9 0.02 270);
+  --sidebar-ring: oklch(0.55 0.25 280);
+  --font-manrope: "Manrope", sans-serif;
+  --font-proxima-nova: "Proxima Nova", sans-serif;
+  --font-founders-grotesk: "Founders Grotesk", sans-serif;
+  --font-dancing-script: "Dancing Script", cursive;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+.dark {
+  /* Beautiful Purple Dark Theme */
+  --background: oklch(0.12 0.02 270);
+  --foreground: oklch(0.98 0.005 270);
+  --card: oklch(0.18 0.02 270);
+  --card-foreground: oklch(0.98 0.005 270);
+  --popover: oklch(0.12 0.02 270);
+  --popover-foreground: oklch(0.98 0.005 270);
+  --primary: oklch(0.65 0.25 280);
+  --primary-foreground: oklch(0.12 0.02 270);
+  --secondary: oklch(0.22 0.02 270);
+  --secondary-foreground: oklch(0.98 0.005 270);
+  --muted: oklch(0.22 0.02 270);
+  --muted-foreground: oklch(0.65 0.05 270);
+  --accent: oklch(0.75 0.2 300);
+  --accent-foreground: oklch(0.12 0.02 270);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.25 0.02 270);
+  --input: oklch(0.22 0.02 270);
+  --ring: oklch(0.65 0.25 280);
+  --chart-1: oklch(0.65 0.25 280);
+  --chart-2: oklch(0.75 0.2 300);
+  --chart-3: oklch(0.55 0.3 260);
+  --chart-4: oklch(0.7 0.25 320);
+  --chart-5: oklch(0.8 0.2 340);
+  --sidebar: oklch(0.15 0.02 270);
+  --sidebar-foreground: oklch(0.98 0.005 270);
+  --sidebar-primary: oklch(0.65 0.25 280);
+  --sidebar-primary-foreground: oklch(0.12 0.02 270);
+  --sidebar-accent: oklch(0.75 0.2 300);
+  --sidebar-accent-foreground: oklch(0.12 0.02 270);
+  --sidebar-border: oklch(0.25 0.02 270);
+  --sidebar-ring: oklch(0.65 0.25 280);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 1px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 2px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: var(--font-poppins);
+  --font-serif: var(--font-proxima-nova);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Gradient Classes */
+.gradient-purple {
+  background: linear-gradient(135deg, oklch(0.55 0.25 280) 0%, oklch(0.65 0.2 300) 50%, oklch(0.45 0.3 260) 100%);
+}
+
+.gradient-purple-dark {
+  background: linear-gradient(135deg, oklch(0.12 0.02 270) 0%, oklch(0.22 0.02 270) 50%, oklch(0.18 0.02 270) 100%);
+}
+
+.gradient-purple-subtle {
+  background: linear-gradient(135deg, oklch(0.95 0.02 270) 0%, oklch(0.98 0.005 270) 100%);
+}
+
+/* Enhanced Button Styles */
+.btn-primary {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-all duration-300 transform hover:scale-105;
+}
+
+.btn-outline {
+  @apply border border-border bg-background/50 backdrop-blur-sm hover:bg-accent hover:text-accent-foreground transition-all duration-300 transform hover:scale-105;
+}
+
+/* Enhanced Card Styles */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02];
+}
+
+/* Enhanced Text Gradients */
+.text-gradient {
+  background: linear-gradient(135deg, oklch(0.55 0.25 280), oklch(0.65 0.2 300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced Focus States */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+}
