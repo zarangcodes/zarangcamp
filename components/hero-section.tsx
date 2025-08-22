@@ -40,8 +40,12 @@ export function HeroSection() {
           
           {/* Hero Text - Enhanced Handwritten Style */}
           <div className="mb-8 md:mb-12">
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 md:mb-8 text-white leading-none" 
-                style={{fontFamily: 'Dancing Script, cursive', transform: 'rotate(-1deg)', textShadow: '0 4px 20px rgba(0,0,0,0.3)'}}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 md:mb-8 text-white leading-none" 
+                style={{
+                  fontFamily: '"Dancing Script", "Brush Script MT", "Lucida Handwriting", "Apple Chancery", "Segoe Script", "Bradley Hand", cursive', 
+                  transform: 'rotate(-1deg)', 
+                  textShadow: '0 4px 20px rgba(0,0,0,0.3)'
+                }}>
               think big.
             </h1>
             

@@ -10,7 +10,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-8 md:py-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Main Content */}
-          <h2 className="font-serif font-bold text-2xl md:text-3xl lg:text-4xl mb-3 md:mb-4 text-white" style={{fontFamily: 'Dancing Script, cursive'}}>Ready for Change?</h2>
+          <h2 className="font-serif font-bold text-2xl md:text-3xl lg:text-4xl mb-3 md:mb-4 text-white" style={{fontFamily: 'Poppins, sans-serif'}}>Ready for Change?</h2>
           <p className="font-sans text-base md:text-lg mb-6 md:mb-8 opacity-90 max-w-2xl mx-auto text-white/90 leading-relaxed px-4" style={{fontFamily: 'Poppins, sans-serif'}}>
             Join the revolution. Be part of the transformation that will define BITS Pilani's future.
           </p>

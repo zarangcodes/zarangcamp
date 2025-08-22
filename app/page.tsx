@@ -17,13 +17,6 @@ export default function Home() {
       <AboutSection />
       <InitiativesSection />
 
-      <button
-        onClick={() => setIsManifestoOpen(true)}
-        className="px-4 py-2 bg-blue-600 text-white rounded-md"
-      >
-        View Manifesto
-      </button>
-
       <ManifestoSection
         isOpen={isManifestoOpen}
         onClose={() => setIsManifestoOpen(false)}

@@ -1,8 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-
-import { X, Calendar, Target, Users, TrendingUp, Lightbulb, Shield, Heart } from "lucide-react"
+import { X, Calendar } from "lucide-react"
 
 interface ManifestoSectionProps {
   isOpen: boolean
@@ -14,101 +13,49 @@ export function ManifestoSection({ isOpen, onClose }: ManifestoSectionProps) {
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-slate-900 border border-slate-700 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="gradient-purple-dark border border-purple-500/30 rounded-2xl max-w-lg w-full shadow-2xl relative overflow-hidden">
+        {/* Enhanced Background Elements - Same as website */}
+        <div className="absolute inset-0">
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+          
+          {/* Floating Orbs */}
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-2xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-r from-accent/15 to-primary/15 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        </div>
+        
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-slate-700">
+        <div className="relative flex items-center justify-between p-6 border-b border-purple-500/20">
           <div className="flex items-center gap-3">
-            <Calendar className="h-5 w-5 text-blue-400" />
-            <h2 className="text-xl font-semibold text-white">Coming Soon</h2>
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+              <Calendar className="h-5 w-5 text-white" />
+            </div>
+            <h2 className="text-xl font-semibold text-white">Manifesto</h2>
           </div>
           <Button
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="text-slate-400 hover:text-white"
+            className="text-slate-400 hover:text-white hover:bg-white/10 h-10 w-10 p-0 rounded-xl transition-all duration-200"
           >
             <X className="h-5 w-5" />
           </Button>
         </div>
 
         {/* Content */}
-        <div className="p-6">
-          <div className="text-center mb-8">
-            <div className="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Calendar className="h-10 w-10 text-blue-400" />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Manifesto Release</h3>
-            <p className="text-slate-300 mb-6">
-              Our comprehensive manifesto will be available on
-            </p>
-            <div className="bg-purple-600 text-white px-6 py-3 rounded-lg inline-block font-semibold">
-              27th August 2025
-            </div>
+        <div className="relative p-8 text-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-purple-500/30 to-purple-600/30 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner border border-purple-400/20">
+            <Calendar className="h-10 w-10 text-purple-300" />
           </div>
-
-          {/* Preview Content */}
-          <div className="space-y-6">
-            <div className="bg-slate-800/50 rounded-lg p-6">
-              <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <Target className="h-5 w-5 text-blue-400" />
-                Our Vision
-              </h4>
-              <p className="text-slate-300 leading-relaxed">
-                Revolutionary leadership for impactful change. From startup mindset to campus transformation.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-slate-800/50 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <Users className="h-5 w-5 text-green-400" />
-                  Student-Centric Approach
-                </h4>
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  Every decision, every initiative, every policy will be designed with students at the center.
-                </p>
-              </div>
-
-              <div className="bg-slate-800/50 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <TrendingUp className="h-5 w-5 text-purple-400" />
-                  Measurable Impact
-                </h4>
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  Data-driven solutions with clear metrics and transparent reporting.
-                </p>
-              </div>
-
-              <div className="bg-slate-800/50 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <Lightbulb className="h-5 w-5 text-yellow-400" />
-                  Innovation First
-                </h4>
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  Leveraging technology and creative solutions to solve campus challenges.
-                </p>
-              </div>
-
-              <div className="bg-slate-800/50 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-red-400" />
-                  Safety & Security
-                </h4>
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  Ensuring a safe, inclusive environment for all students.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-lg p-6 border border-purple-500/30">
-              <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                <Heart className="h-5 w-5 text-pink-400" />
-                Why This Matters
-              </h4>
-              <p className="text-slate-300 leading-relaxed">
-                This manifesto represents not just promises, but a comprehensive roadmap for transforming BITS Pilani into a more inclusive, innovative, and student-friendly campus. Every point has been carefully crafted based on real student feedback and proven track record.
-              </p>
-            </div>
+          
+          <h3 className="text-2xl font-bold text-white mb-4">Coming Soon</h3>
+          
+          <p className="text-slate-200 text-base mb-6 leading-relaxed max-w-md mx-auto">
+            Our comprehensive manifesto will be available on
+          </p>
+          
+          <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-xl inline-block font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-purple-400/30">
+            27th August 2025
           </div>
         </div>
       </div>
