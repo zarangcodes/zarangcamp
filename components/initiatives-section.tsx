@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Users, TrendingUp, Smartphone, Brain, BarChart3, Gift, Car, Home, Users2, Utensils } from "lucide-react"
+import { useState, useEffect } from "react"
 
 const initiatives = [
   {
@@ -117,6 +118,57 @@ const initiatives = [
 ]
 
 export function InitiativesSection() {
+  const [counts, setCounts] = useState({
+    impact: 0,
+    students: 0,
+    companies: 0,
+    initiatives: 0
+  })
+
+  const targets = {
+    impact: 72,
+    students: 3000,
+    companies: 55,
+    initiatives: 11
+  }
+
+  useEffect(() => {
+    const durations = {
+      impact: 2000,
+      students: 2500,
+      companies: 1800,
+      initiatives: 1000
+    }
+
+    const animateCount = (key: keyof typeof targets, target: number, duration: number) => {
+      const startTime = Date.now()
+      const startValue = 0
+
+      const updateCount = () => {
+        const elapsed = Date.now() - startTime
+        const progress = Math.min(elapsed / duration, 1)
+        
+        // Easing function for smooth animation
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3)
+        const currentValue = Math.floor(startValue + (target - startValue) * easeOutCubic)
+        
+        setCounts(prev => ({ ...prev, [key]: currentValue }))
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCount)
+        }
+      }
+      
+      requestAnimationFrame(updateCount)
+    }
+
+    // Start animations with slight delays for staggered effect
+    animateCount('impact', targets.impact, durations.impact)
+    setTimeout(() => animateCount('students', targets.students, durations.students), 200)
+    setTimeout(() => animateCount('companies', targets.companies, durations.companies), 400)
+    setTimeout(() => animateCount('initiatives', targets.initiatives, durations.initiatives), 600)
+  }, [])
+
   return (
     <section id="initiatives-section" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -134,20 +186,20 @@ export function InitiativesSection() {
 
           {/* Summary Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-16">
-            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border/50">
-              <div className="font-sans font-bold text-3xl md:text-4xl text-primary mb-2">₹72L+</div>
+            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6">
+              <div className="font-sans font-bold text-3xl md:text-4xl text-primary mb-2">₹{counts.impact}L+</div>
               <div className="font-sans text-sm text-muted-foreground">Combined Impact Value</div>
             </div>
-            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border/50">
-              <div className="font-sans font-bold text-3xl md:text-4xl text-primary mb-2">3000+</div>
+            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6">
+              <div className="font-sans font-bold text-3xl md:text-4xl text-primary mb-2">{counts.students.toLocaleString()}+</div>
               <div className="font-sans text-sm text-muted-foreground">Students Reached</div>
             </div>
-            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border/50">
-              <div className="font-sans font-bold text-3xl md:text-4xl text-primary mb-2">55+</div>
+            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6">
+              <div className="font-sans font-bold text-3xl md:text-4xl text-primary mb-2">{counts.companies}+</div>
               <div className="font-sans text-sm text-muted-foreground">Company Partnerships</div>
             </div>
-            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border/50">
-              <div className="font-sans font-bold text-3xl md:text-4xl text-primary mb-2">11</div>
+            <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6">
+              <div className="font-sans font-bold text-3xl md:text-4xl text-primary mb-2">{counts.initiatives}</div>
               <div className="font-sans text-sm text-muted-foreground">Major Initiatives</div>
             </div>
           </div>

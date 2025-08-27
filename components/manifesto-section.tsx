@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { X, Calendar } from "lucide-react"
+import { useEffect } from "react"
 
 interface ManifestoSectionProps {
   isOpen: boolean
@@ -9,11 +10,25 @@ interface ManifestoSectionProps {
 }
 
 export function ManifestoSection({ isOpen, onClose }: ManifestoSectionProps) {
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="gradient-purple-dark border border-purple-500/30 rounded-2xl max-w-lg w-full shadow-2xl relative overflow-hidden">
+      <div className="gradient-purple-dark border border-purple-500/30 rounded-2xl max-w-6xl w-full h-[90vh] shadow-2xl relative overflow-hidden">
         {/* Enhanced Background Elements - Same as website */}
         <div className="absolute inset-0">
           {/* Grid Pattern */}
@@ -25,38 +40,31 @@ export function ManifestoSection({ isOpen, onClose }: ManifestoSectionProps) {
         </div>
         
         {/* Header */}
-        <div className="relative flex items-center justify-between p-6 border-b border-purple-500/20">
+        <div className="relative flex items-center justify-between p-4 border-b border-purple-500/20">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-              <Calendar className="h-5 w-5 text-white" />
+            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+              <Calendar className="h-4 w-4 text-white" />
             </div>
-            <h2 className="text-xl font-semibold text-white">Manifesto</h2>
+            <h2 className="text-lg font-semibold text-white">Manifesto</h2>
           </div>
           <Button
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="text-slate-400 hover:text-white hover:bg-white/10 h-10 w-10 p-0 rounded-xl transition-all duration-200"
+            className="text-slate-400 hover:text-white hover:bg-white/10 h-8 w-8 p-0 rounded-lg transition-all duration-200"
           >
-            <X className="h-5 w-5" />
+            <X className="h-4 w-4" />
           </Button>
         </div>
 
-        {/* Content */}
-        <div className="relative p-8 text-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-purple-500/30 to-purple-600/30 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner border border-purple-400/20">
-            <Calendar className="h-10 w-10 text-purple-300" />
-          </div>
-          
-          <h3 className="text-2xl font-bold text-white mb-4">Coming Soon</h3>
-          
-          <p className="text-slate-200 text-base mb-6 leading-relaxed max-w-md mx-auto">
-            Our comprehensive manifesto will be available on
-          </p>
-          
-          <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-xl inline-block font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-purple-400/30">
-            27th August 2025
-          </div>
+        {/* PDF Content */}
+        <div className="relative h-[calc(100%-4rem)] overflow-hidden">
+          <iframe
+            src="/pdfs/manifesto.pdf"
+            className="w-full h-full border-0"
+            title="Manifesto PDF"
+            style={{ overflow: 'hidden' }}
+          />
         </div>
       </div>
     </div>
