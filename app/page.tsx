@@ -8,6 +8,8 @@ import { ManifestoSection } from "@/components/manifesto-section";
 import { FAQSection } from "@/components/faq-section";
 import { Footer } from "@/components/footer";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   const [isManifestoOpen, setIsManifestoOpen] = useState(false);
 
